@@ -1,5 +1,5 @@
 //
-//  PuppiesControllerViewModel.swift
+//  HomeControllerViewModel.swift
 //  AdoptAPup
 //
 //  Created by Catherine Shing on 6/27/23.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PuppiesControllerViewModel {
+class HomeControllerViewModel {
     
     init() {
         self.fetchPuppies()

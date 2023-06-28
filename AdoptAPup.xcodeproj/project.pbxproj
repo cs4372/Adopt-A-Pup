@@ -11,18 +11,19 @@
 		47C783C72A4A9B7D00E9A61A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783C62A4A9B7D00E9A61A /* SceneDelegate.swift */; };
 		47C783CF2A4A9B7D00E9A61A /* AdoptAPup.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 47C783CD2A4A9B7D00E9A61A /* AdoptAPup.xcdatamodeld */; };
 		47C783D42A4A9B7F00E9A61A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 47C783D22A4A9B7F00E9A61A /* LaunchScreen.storyboard */; };
-		47C783F62A4BB63B00E9A61A /* PuppiesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783F52A4BB63B00E9A61A /* PuppiesViewController.swift */; };
+		47C783F62A4BB63B00E9A61A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783F52A4BB63B00E9A61A /* HomeViewController.swift */; };
 		47C783FB2A4BB65F00E9A61A /* HTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783FA2A4BB65F00E9A61A /* HTTP.swift */; };
 		47C783FD2A4BB68B00E9A61A /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783FC2A4BB68B00E9A61A /* Endpoint.swift */; };
 		47C783FF2A4BB69600E9A61A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C783FE2A4BB69600E9A61A /* APIService.swift */; };
 		47C784042A4BB6EF00E9A61A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 47C784032A4BB6EF00E9A61A /* Assets.xcassets */; };
 		47C784072A4BB71C00E9A61A /* ConstantsUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C784062A4BB71C00E9A61A /* ConstantsUtils.swift */; };
 		47C784092A4BB73300E9A61A /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C784082A4BB73300E9A61A /* Constants.swift */; };
-		47C7840C2A4BC1DA00E9A61A /* PuppiesControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7840B2A4BC1D900E9A61A /* PuppiesControllerViewModel.swift */; };
+		47C7840C2A4BC1DA00E9A61A /* HomeControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7840B2A4BC1D900E9A61A /* HomeControllerViewModel.swift */; };
 		47C7840E2A4BCF9500E9A61A /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7840D2A4BCF9500E9A61A /* Token.swift */; };
 		47C784102A4BDC4B00E9A61A /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C7840F2A4BDC4B00E9A61A /* APIError.swift */; };
 		47C784122A4BDF2500E9A61A /* Puppy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C784112A4BDF2500E9A61A /* Puppy.swift */; };
 		47C784142A4BF3D500E9A61A /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 47C784132A4BF3D500E9A61A /* APIKeys.plist */; };
+		47C784182A4BF9D200E9A61A /* PuppyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C784172A4BF9D200E9A61A /* PuppyCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,19 +33,20 @@
 		47C783CE2A4A9B7D00E9A61A /* AdoptAPup.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AdoptAPup.xcdatamodel; sourceTree = "<group>"; };
 		47C783D32A4A9B7F00E9A61A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		47C783D52A4A9B7F00E9A61A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		47C783F52A4BB63B00E9A61A /* PuppiesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuppiesViewController.swift; sourceTree = "<group>"; };
+		47C783F52A4BB63B00E9A61A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		47C783FA2A4BB65F00E9A61A /* HTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTP.swift; sourceTree = "<group>"; };
 		47C783FC2A4BB68B00E9A61A /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		47C783FE2A4BB69600E9A61A /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		47C784032A4BB6EF00E9A61A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		47C784062A4BB71C00E9A61A /* ConstantsUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstantsUtils.swift; sourceTree = "<group>"; };
 		47C784082A4BB73300E9A61A /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		47C7840B2A4BC1D900E9A61A /* PuppiesControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuppiesControllerViewModel.swift; sourceTree = "<group>"; };
+		47C7840B2A4BC1D900E9A61A /* HomeControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeControllerViewModel.swift; sourceTree = "<group>"; };
 		47C7840D2A4BCF9500E9A61A /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		47C7840F2A4BDC4B00E9A61A /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		47C784112A4BDF2500E9A61A /* Puppy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Puppy.swift; sourceTree = "<group>"; };
 		47C784132A4BF3D500E9A61A /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		47C784152A4BF45B00E9A61A /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		47C784172A4BF9D200E9A61A /* PuppyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PuppyCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				47C7840A2A4BB74200E9A61A /* Extensions */,
 				47C784052A4BB70D00E9A61A /* Helpers */,
 				47C784022A4BB6E300E9A61A /* Resources */,
+				47C784162A4BF97800E9A61A /* Views */,
 				47C783F42A4BB62B00E9A61A /* Controllers */,
 				47C784002A4BB6BE00E9A61A /* ViewModels */,
 				47C783F92A4BB65600E9A61A /* Services */,
@@ -99,7 +102,7 @@
 		47C783F42A4BB62B00E9A61A /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				47C783F52A4BB63B00E9A61A /* PuppiesViewController.swift */,
+				47C783F52A4BB63B00E9A61A /* HomeViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -134,7 +137,7 @@
 		47C784002A4BB6BE00E9A61A /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				47C7840B2A4BC1D900E9A61A /* PuppiesControllerViewModel.swift */,
+				47C7840B2A4BC1D900E9A61A /* HomeControllerViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -161,6 +164,14 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		47C784162A4BF97800E9A61A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				47C784172A4BF9D200E9A61A /* PuppyCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,7 +245,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				47C783F62A4BB63B00E9A61A /* PuppiesViewController.swift in Sources */,
+				47C783F62A4BB63B00E9A61A /* HomeViewController.swift in Sources */,
 				47C784092A4BB73300E9A61A /* Constants.swift in Sources */,
 				47C784072A4BB71C00E9A61A /* ConstantsUtils.swift in Sources */,
 				47C784122A4BDF2500E9A61A /* Puppy.swift in Sources */,
@@ -245,7 +256,8 @@
 				47C783CF2A4A9B7D00E9A61A /* AdoptAPup.xcdatamodeld in Sources */,
 				47C7840E2A4BCF9500E9A61A /* Token.swift in Sources */,
 				47C783C52A4A9B7D00E9A61A /* AppDelegate.swift in Sources */,
-				47C7840C2A4BC1DA00E9A61A /* PuppiesControllerViewModel.swift in Sources */,
+				47C7840C2A4BC1DA00E9A61A /* HomeControllerViewModel.swift in Sources */,
+				47C784182A4BF9D200E9A61A /* PuppyCell.swift in Sources */,
 				47C783C72A4A9B7D00E9A61A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
