@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "75751F5C-3899-48BE-842D-D097F4F79165"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "371E9946-BD29-456C-8076-20753EBA9E87"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdoptAPup/Services/Endpoint.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "request"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "371E9946-BD29-456C-8076-20753EBA9E87 - 47c74e8bc30eff6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdoptAPup.Endpoint.request.getter : Swift.Optional&lt;Foundation.URLRequest&gt;"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Services/Endpoint.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1136">
+               </Location>
+               <Location
+                  uuid = "371E9946-BD29-456C-8076-20753EBA9E87 - 47c74e8bc30eff6e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdoptAPup.Endpoint.request.getter : Swift.Optional&lt;Foundation.URLRequest&gt;"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Services/Endpoint.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "22"
+                  endingLineNumber = "22"
+                  offsetFromSymbolStart = "1064">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B998FECF-5A0A-45C9-87E3-EC04BB75423B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AdoptAPup/Services/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
+            landmarkName = "fetchPuppies(with:with:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "B998FECF-5A0A-45C9-87E3-EC04BB75423B - db7eb091580171c2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AdoptAPup.APIService.fetchPuppies(with: AdoptAPup.Endpoint, with: Swift.String, completion: (Swift.Result&lt;Swift.Array&lt;AdoptAPup.Puppy&gt;, AdoptAPup.APIServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Services/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1260">
+               </Location>
+               <Location
+                  uuid = "B998FECF-5A0A-45C9-87E3-EC04BB75423B - 80e18cd7f92f03c1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AdoptAPup.APIService.fetchPuppies(with: AdoptAPup.Endpoint, with: Swift.String, completion: (Swift.Result&lt;AdoptAPup.PuppyArray, AdoptAPup.APIServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Services/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "81"
+                  endingLineNumber = "81"
+                  offsetFromSymbolStart = "1272">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
