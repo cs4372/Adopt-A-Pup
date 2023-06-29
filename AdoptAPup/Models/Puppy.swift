@@ -9,6 +9,7 @@ import Foundation
 
 struct PuppyArray: Decodable {
     let animals: [Puppy]
+    let pagination: Pagination
 }
 
 struct Puppy: Decodable {
@@ -49,4 +50,18 @@ struct Address: Decodable {
     let address2: String?
     let city, state, postcode: String?
     let country: String?
+}
+
+struct Pagination: Decodable {
+    let countPerPage: Int?
+    let totalCount: Int?
+    let currentPage: Int?
+    let totalPages: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case countPerPage = "count_per_page"
+        case totalCount = "total_count"
+        case currentPage = "current_page"
+        case totalPages = "total_pages"
+    }
 }

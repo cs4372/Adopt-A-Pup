@@ -9,7 +9,7 @@ import Foundation
 
 enum Endpoint {
     case getBearerToken(url: String = "/v2/oauth2/token")
-    case fetchPuppies(url: String = "/v2/animals")
+    case fetchPuppies(page: Int, url: String = "/v2/animals")
     
     var request: URLRequest? {
         guard let url = self.url else { return nil }
@@ -32,7 +32,7 @@ enum Endpoint {
     
     private var path: String {
         switch self {
-        case .fetchPuppies(let url):
+        case .fetchPuppies(_, let url):
             return url
         case .getBearerToken(url: let url):
             return url
@@ -41,9 +41,10 @@ enum Endpoint {
     
     private var queryItems: [URLQueryItem] {
         switch self {
-        case .fetchPuppies:
+        case .fetchPuppies(let page, _):
             return [
-                URLQueryItem(name: "type", value: "dog")
+                URLQueryItem(name: "type", value: "dog"),
+                URLQueryItem(name: "page", value: String(page))
             ]
         default:
             return []

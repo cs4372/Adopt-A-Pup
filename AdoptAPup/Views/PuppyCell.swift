@@ -16,7 +16,7 @@ class PuppyCell: UITableViewCell {
     private let puppyName: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.textAlignment = .left
+//        label.textAlignment = .left
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.text = "Unknown"
         return label

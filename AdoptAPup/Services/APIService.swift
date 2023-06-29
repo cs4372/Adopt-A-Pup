@@ -13,14 +13,17 @@ enum APIServiceError: Error {
     case decodingError(String = "Error parsing server response.")
 }
 
+struct PuppiesResponse {
+    let puppies: [Puppy]
+    let pagination: Pagination
+}
+
 class APIService {
     
     static func getAccessToken(with endpoint: Endpoint, completion: @escaping (Result<String, APIServiceError>) -> Void) {
 
         guard let request = endpoint.request else { return }
-        
-        print("request ==>", request)
-        
+                
         URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 completion(.failure(.unknown(error.localizedDescription)))
@@ -57,7 +60,7 @@ class APIService {
         }.resume()
     }
     
-    static func fetchPuppies(with endpoint: Endpoint, with accessToken: String, completion: @escaping (Result<PuppyArray, APIServiceError>) -> Void) {
+    static func fetchPuppies(with endpoint: Endpoint, with accessToken: String, completion: @escaping (Result<PuppiesResponse, APIServiceError>) -> Void) {
         
         guard var request = endpoint.request else { return }
 
@@ -75,20 +78,17 @@ class APIService {
                        completion(.failure(.serverError(apiError)))
                    } catch let err {
                        completion(.failure(.unknown()))
-                       print("inside catch 1", err.localizedDescription)
                    }
                    return
                }
                
                if let data = data {
                    do {
-                       let decoder = JSONDecoder()
-                       let puppies = try decoder.decode(PuppyArray.self, from: data)
-                       print("puppies", puppies)
-                       completion(.success(puppies))
+                       let puppyArray = try JSONDecoder().decode(PuppyArray.self, from: data)
+                       let puppiesResponse = PuppiesResponse(puppies: puppyArray.animals, pagination: puppyArray.pagination)
+                       completion(.success(puppiesResponse))
                    } catch let err {
                        completion(.failure(.decodingError()))
-                       print("inside catch 2", err.localizedDescription)
                    }
                } else {
                    completion(.failure(.unknown()))
