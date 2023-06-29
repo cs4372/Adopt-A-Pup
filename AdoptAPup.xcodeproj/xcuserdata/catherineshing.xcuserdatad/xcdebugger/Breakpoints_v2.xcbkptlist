@@ -112,6 +112,21 @@
                   endingLineNumber = "83"
                   offsetFromSymbolStart = "1272">
                </Location>
+               <Location
+                  uuid = "B998FECF-5A0A-45C9-87E3-EC04BB75423B - c41fee832fb2223a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 @Sendable (Swift.Optional&lt;Foundation.Data&gt;, Swift.Optional&lt;__C.NSURLResponse&gt;, Swift.Optional&lt;Swift.Error&gt;) -&gt; () in static AdoptAPup.APIService.fetchPuppies(with: AdoptAPup.Endpoint, with: Swift.String, completion: (Swift.Result&lt;AdoptAPup.PuppiesResponse, AdoptAPup.APIServiceError&gt;) -&gt; ()) -&gt; ()"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Services/APIService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "1344">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -158,6 +173,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "63"
                   endingLineNumber = "63"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "5B893AE3-4711-4339-8E58-E2A3660C823B - 607658cf07418a09"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AdoptAPup.HomeViewController.tableView(_: __C.UITableView, numberOfRowsInSection: Swift.Int) -&gt; Swift.Int"
+                  moduleName = "AdoptAPup"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/catherineshing/Documents/AdoptAPup/AdoptAPup/Controllers/HomeViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "78"
+                  endingLineNumber = "78"
                   offsetFromSymbolStart = "48">
                </Location>
             </Locations>

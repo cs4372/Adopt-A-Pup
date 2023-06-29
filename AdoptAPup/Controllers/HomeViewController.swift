@@ -84,12 +84,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let puppy = self.viewModel.puppies[indexPath.row]
+        print("puppy", puppy)
         cell.configure(with: puppy)
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 300
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -23,6 +23,11 @@ struct Puppy: Decodable {
     let size: String?
     let primaryPhotoCropped: Photo?
     let contact: Contact
+    
+    enum CodingKeys: String, CodingKey {
+         case id, name, url, breeds, colors, age, gender, size, contact
+         case primaryPhotoCropped = "primary_photo_cropped"
+     }
 }
 
 struct Breeds: Decodable {
