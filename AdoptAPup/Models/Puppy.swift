@@ -31,7 +31,7 @@ struct Puppy: Decodable {
 }
 
 struct Breeds: Decodable {
-    let primary: String
+    let primary: String?
     let secondary: String?
     let mixed, unknown: Bool
 }

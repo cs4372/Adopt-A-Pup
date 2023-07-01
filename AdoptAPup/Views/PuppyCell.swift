@@ -11,6 +11,8 @@ class PuppyCell: UITableViewCell {
     
     static let identifier = "PuppyCell"
     
+    private var imageURL: URL?
+
     private(set) var puppy: Puppy!
     
     private let puppyPhoto: UIImageView = {
@@ -25,7 +27,6 @@ class PuppyCell: UITableViewCell {
     private let puppyName: UILabel = {
         let label = UILabel()
         label.textColor = .label
-//        label.textAlignment = .left
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.text = "Unknown"
         return label
@@ -43,13 +44,28 @@ class PuppyCell: UITableViewCell {
     }
     
     public func configure(with puppy: Puppy) {
-        self.puppy = puppy
-        self.puppyName.text = puppy.name
-        if let imageUrl = URL(string: puppy.primaryPhotoCropped?.full ?? "") {
-            print("imageUrl", imageUrl)
-            self.puppyPhoto.sd_setImage(with: imageUrl)
+        if let previousImageURL = imageURL, previousImageURL.absoluteString != puppy.primaryPhotoCropped?.full {
+            puppyPhoto.sd_cancelCurrentImageLoad()
+        }
+
+        if let name = puppy.name, let image = puppy.primaryPhotoCropped?.full, let imageUrl = URL(string: image) {
+            self.puppy = puppy
+            self.puppyName.text = name
+
+            self.imageURL = imageUrl
+
+            puppyPhoto.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholderImage"))
+        } else {
+            puppyPhoto.image = UIImage(named: "placeholderImage")
+            puppyName.text = ""
         }
     }
+    
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//        self.puppyPhoto.image = UIImage(named: "placeholderImage")
+//        self.puppyName.text = "Unknown"
+//    }
     
     private func setupUI() {
         self.addSubview(puppyPhoto)

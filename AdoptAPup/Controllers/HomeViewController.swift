@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class HomeViewController: UIViewController {
     
@@ -34,6 +35,7 @@ class HomeViewController: UIViewController {
             DispatchQueue.main.async {
                 self?.tableView.reloadData()
             }
+            print("home vc reload")
         }
     }
     
@@ -46,7 +48,6 @@ class HomeViewController: UIViewController {
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-        // Configure the scroll view as needed
         return scrollView
     }()
 
@@ -84,8 +85,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let puppy = self.viewModel.puppies[indexPath.row]
-        print("puppy", puppy)
-        cell.configure(with: puppy)
+        DispatchQueue.main.async {
+            cell.configure(with: puppy)
+        }
         return cell
     }
     
@@ -95,7 +97,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.tableView.deselectRow(at: indexPath, animated: true)
-
+        let puppy = self.viewModel.puppies[indexPath.row]
+        let viewModel = ViewPuppyViewModel(puppy)
+        let vc = ViewPuppyController(viewModel)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 
@@ -106,7 +111,7 @@ extension HomeViewController: UIScrollViewDelegate {
          let scrollViewHeight = scrollView.frame.size.height
 
          if contentOffsetY > contentHeight - scrollViewHeight {
-             if viewModel.currentPage < viewModel.totalPages {
+             if (viewModel.currentPage < viewModel.totalPages) && !viewModel.isLoading  {
                  viewModel.fetchPuppies()
              }
          }

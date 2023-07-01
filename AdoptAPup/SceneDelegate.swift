@@ -20,5 +20,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window?.makeKeyAndVisible()
         
         SDImageCache.shared.config.maxDiskSize = 100000 * 200
+        
+        // Setting memory cache
+        SDImageCache.shared.config.maxDiskAge = 15 * 1024 * 1024
+        
+        SDImageCache.shared.config.maxMemoryCost = 100 * 1024 * 1024
     }
 }
