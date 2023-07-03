@@ -22,6 +22,10 @@ class ViewPuppyViewModel  {
         return "Name: \(self.puppy.name ?? "Unknown")"
     }
     
+    var descriptionLabel: String {
+        return "Description: \(self.puppy.description ?? "Unknown")"
+    }
+    
     var ageLabel: String {
         return "Age: \(self.puppy.age ?? "Unknown")"
     }

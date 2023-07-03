@@ -9,6 +9,7 @@ import UIKit
 
 class HomeControllerViewModel {
     
+    private var accessToken: String?
     var currentPage = 1
     var totalPages = 0
     
@@ -20,7 +21,7 @@ class HomeControllerViewModel {
             self.onPuppiesUpdated?()
         }
     }
-    
+        
     var isLoading = false {
         didSet {
             self.onLoading?(isLoading)
@@ -28,39 +29,49 @@ class HomeControllerViewModel {
     }
     
     init() {
-        self.fetchPuppies()
+        self.fetchAccessToken()
     }
     
-    public func fetchPuppies() {
+    func fetchAccessToken() {
         guard !isLoading else {
             return
         }
-        
         isLoading = true
-
-        let endpoint = Endpoint.getBearerToken()
-
-        APIService.getAccessToken(with: endpoint) { [weak self] result in
-            switch result {
-            case .success(let accessToken):
-                self?.fetchPuppiesWithToken(accessToken: accessToken, completion: { _ in })
-            case .failure(let error):
-                print("Failed to get access token:", error)
-                self?.isLoading = false
-            }
+        let tokenEndpoint = Endpoint.getBearerToken()
+        
+        if accessToken != nil {
+            print("has access token")
+            self.fetchPuppies()
+            return
         }
-    }
+        
+        APIService.getAccessToken(with: tokenEndpoint) { [weak self] result in
+            switch result {
+              case .success(let accessToken):
+                  self?.accessToken = accessToken
+                  self?.fetchPuppies()
+              case .failure(let error):
+                print("failure getting token", error)
+              }
+          }
+      }
 
-    func fetchPuppiesWithToken(accessToken: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func fetchPuppies() {
+        
+        guard let accessToken = accessToken else {
+            print("access token error")
+            return
+        }
+        
         let endpoint = Endpoint.fetchPuppies(page: currentPage)
 
         APIService.fetchPuppies(with: endpoint, with: accessToken) { [weak self] result in
             switch result {
             case .success(let res):
-                DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+
+                DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
                     self?.puppies.append(contentsOf: res.puppies)
                 }
-                completion(.success(()))
                 self?.currentPage += 1
                 self?.totalPages = res.pagination.totalPages ?? 0
             case .failure(let error):
@@ -70,4 +81,3 @@ class HomeControllerViewModel {
         }
     }
 }
-

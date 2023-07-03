@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import SDWebImage
 
 class HomeViewController: UIViewController {
     
     private let viewModel: HomeControllerViewModel
     
     init(_ viewModel: HomeControllerViewModel = HomeControllerViewModel()) {
-        print("inside pup vm init")
+        print("inside home vm init")
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -26,10 +25,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         self.setupUI()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-        
-        self.scrollView.delegate = self
+        self.setupView()
 
         self.viewModel.onPuppiesUpdated = { [weak self] in
             DispatchQueue.main.async {
@@ -39,7 +35,13 @@ class HomeViewController: UIViewController {
         }
     }
     
-    // MARK: - UI Components
+    private func setupView() {
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.scrollView.delegate = self
+        self.tableView.prefetchDataSource = self
+    }
+    
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.register(PuppyCell.self, forCellReuseIdentifier: PuppyCell.identifier)
@@ -83,11 +85,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PuppyCell.identifier, for: indexPath) as? PuppyCell else {
             fatalError("Unable to dequeue PuppyCell in HomeViewController")
         }
-        
         let puppy = self.viewModel.puppies[indexPath.row]
-        DispatchQueue.main.async {
-            cell.configure(with: puppy)
-        }
+        cell.configure(with: puppy)
+        cell.textLabel?.text = "\(indexPath.row)"
         return cell
     }
     
@@ -104,17 +104,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-extension HomeViewController: UIScrollViewDelegate {
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-         let contentOffsetY = scrollView.contentOffset.y
-         let contentHeight = scrollView.contentSize.height
-         let scrollViewHeight = scrollView.frame.size.height
-
-         if contentOffsetY > contentHeight - scrollViewHeight {
-             if (viewModel.currentPage < viewModel.totalPages) && !viewModel.isLoading  {
-                 viewModel.fetchPuppies()
-             }
-         }
-     }
+extension HomeViewController: UITableViewDataSourcePrefetching {
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        
+        for index in indexPaths {
+            if index.row >= viewModel.puppies.count - 3 && !viewModel.isLoading {
+                viewModel.fetchAccessToken()
+                break
+            }
+        }
+    }
 }
-

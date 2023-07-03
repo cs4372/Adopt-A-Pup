@@ -15,6 +15,7 @@ struct PuppyArray: Decodable {
 struct Puppy: Decodable {
     let id: Int
     let name: String?
+    let description: String?
     let url: String?
     let breeds: Breeds
     let colors: Colors
@@ -25,7 +26,7 @@ struct Puppy: Decodable {
     let contact: Contact
     
     enum CodingKeys: String, CodingKey {
-         case id, name, url, breeds, colors, age, gender, size, contact
+         case id, name, url, breeds, colors, age, gender, size, contact, description
          case primaryPhotoCropped = "primary_photo_cropped"
      }
 }

@@ -40,6 +40,16 @@ class ViewPuppyController: UIViewController {
         return label
     }()
     
+    private let descriptionLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.textAlignment = .center
+        label.numberOfLines = 0
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.text = "Error"
+        return label
+    }()
+    
     private let ageLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
@@ -77,7 +87,7 @@ class ViewPuppyController: UIViewController {
     }()
 
     private lazy var vStack: UIStackView = {
-        let vStack = UIStackView(arrangedSubviews: [nameLabel, ageLabel, genderLabel, sizeLabel, primaryBreedLabel])
+        let vStack = UIStackView(arrangedSubviews: [nameLabel, descriptionLabel, ageLabel, genderLabel, sizeLabel, primaryBreedLabel])
         vStack.axis = .vertical
         vStack.spacing = 12
         vStack.distribution = .fill
@@ -85,7 +95,6 @@ class ViewPuppyController: UIViewController {
         return vStack
     }()
     
-    // MARK: Lifecycle
     init(_ viewModel: ViewPuppyViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -100,18 +109,20 @@ class ViewPuppyController: UIViewController {
         
         self.setupUI()
         
+        puppyImage.kf.indicatorType = .activity
+        
         self.view.backgroundColor = .systemBackground
 //        self.navigationItem.title = self.viewModel.puppy.name
         self.navigationController?.navigationBar.topItem?.backBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: nil, action: nil)
         self.nameLabel.text = self.viewModel.nameLabel
+        self.descriptionLabel.text = self.viewModel.descriptionLabel
         self.ageLabel.text = self.viewModel.ageLabel
         self.genderLabel.text = self.viewModel.genderLabel
         self.sizeLabel.text = self.viewModel.sizeLabel
         self.primaryBreedLabel.text = self.viewModel.primaryBreedLabel
         
-        if let imageURLString = self.viewModel.puppy.primaryPhotoCropped?.full, let imageURL = URL(string: imageURLString) {
-            print("imageURL ==>", imageURL)
-            self.puppyImage.sd_setImage(with: imageURL)
+        if let image = viewModel.puppy.primaryPhotoCropped?.full {
+            puppyImage.kf.setImage(with: URL(string: image)!)
         }
     }
     
@@ -151,8 +162,8 @@ class ViewPuppyController: UIViewController {
 
             vStack.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             vStack.topAnchor.constraint(equalTo: puppyImage.bottomAnchor, constant: 20),
-            vStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            vStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            vStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 40),
+            vStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -40),
             vStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }

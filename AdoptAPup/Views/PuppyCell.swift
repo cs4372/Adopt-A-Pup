@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PuppyCell: UITableViewCell {
     
@@ -18,7 +19,6 @@ class PuppyCell: UITableViewCell {
     private let puppyPhoto: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
-        image.image = UIImage(systemName: "questionmark")
         image.tintColor = .black
         return image
     }()
@@ -43,29 +43,24 @@ class PuppyCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public func configure(with puppy: Puppy) {
-        if let previousImageURL = imageURL, previousImageURL.absoluteString != puppy.primaryPhotoCropped?.full {
-            puppyPhoto.sd_cancelCurrentImageLoad()
-        }
-
-        if let name = puppy.name, let image = puppy.primaryPhotoCropped?.full, let imageUrl = URL(string: image) {
-            self.puppy = puppy
-            self.puppyName.text = name
-
-            self.imageURL = imageUrl
-
-            puppyPhoto.sd_setImage(with: imageUrl, placeholderImage: UIImage(named: "placeholderImage"))
-        } else {
-            puppyPhoto.image = UIImage(named: "placeholderImage")
-            puppyName.text = ""
-        }
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        self.puppy = nil
+        puppyPhoto.kf.indicatorType = .activity
     }
     
-//    override func prepareForReuse() {
-//        super.prepareForReuse()
-//        self.puppyPhoto.image = UIImage(named: "placeholderImage")
-//        self.puppyName.text = "Unknown"
-//    }
+    public func configure(with puppy: Puppy) {
+        if let name = puppy.name, let image = puppy.primaryPhotoCropped?.full {
+            self.puppy = puppy
+            self.puppyName.text = name
+            
+            puppyPhoto.kf.cancelDownloadTask()
+            
+            puppyPhoto.kf.indicatorType = .activity
+            puppyPhoto.kf.setImage(with: URL(string: image)!)
+        }
+    }
     
     private func setupUI() {
         self.addSubview(puppyPhoto)

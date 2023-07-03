@@ -7,5 +7,5 @@ target 'AdoptAPup' do
 
   # Pods for AdoptAPup
   pod 'SDWebImage', '~> 5.0'
-
+  pod 'Kingfisher', '~> 7.0'
 end

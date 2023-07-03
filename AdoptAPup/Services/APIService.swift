@@ -34,19 +34,17 @@ class APIService {
                 
                 do {
                     let apiError = try JSONDecoder().decode(APIError.self, from: data ?? Data())
-                    completion(.failure(.serverError(apiError)))
                     
-                } catch let err {
+                } catch _ {
                     completion(.failure(.unknown()))
-                    print(err.localizedDescription)
                 }
             }
             
             if let data = data {
                 do {
                     let decoder = JSONDecoder()
-                    let coinData = try decoder.decode(Token.self, from: data)
-                    completion(.success(coinData.accessToken))
+                    let tokenData = try decoder.decode(Token.self, from: data)
+                    completion(.success(tokenData.accessToken))
                     
                 } catch let err {
                     completion(.failure(.decodingError()))
@@ -76,7 +74,7 @@ class APIService {
                    do {
                        let apiError = try JSONDecoder().decode(APIError.self, from: data ?? Data())
                        completion(.failure(.serverError(apiError)))
-                   } catch let err {
+                   } catch _ {
                        completion(.failure(.unknown()))
                    }
                    return
@@ -87,7 +85,7 @@ class APIService {
                        let puppyArray = try JSONDecoder().decode(PuppyArray.self, from: data)
                        let puppiesResponse = PuppiesResponse(puppies: puppyArray.animals, pagination: puppyArray.pagination)
                        completion(.success(puppiesResponse))
-                   } catch let err {
+                   } catch _ {
                        completion(.failure(.decodingError()))
                    }
                } else {
